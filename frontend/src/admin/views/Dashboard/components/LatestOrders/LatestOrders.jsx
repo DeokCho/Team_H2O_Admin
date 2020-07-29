@@ -23,6 +23,7 @@ import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 
 import mockData from './data';
 import { StatusBullet } from '../../../../components';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
   root: {},
@@ -129,13 +130,14 @@ const LatestOrders = props => {
       </CardContent>
       <Divider />
       <CardActions className={classes.actions}>
-        <Button
+        <Link
           color="primary"
           size="small"
           variant="text"
+          to="/admin/RecentVisitingHospital"
         >
           전체보기#1(View all) <ArrowRightIcon />
-        </Button>
+        </Link>
       </CardActions>
     </Card>
   );

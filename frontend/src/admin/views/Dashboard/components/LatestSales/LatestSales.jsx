@@ -17,6 +17,7 @@ import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 
 import { data, options } from './chart';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles(() => ({
   root: {},
@@ -80,14 +81,14 @@ const LatestSales = props => {
       </CardContent>
       <Divider />
       <CardActions className={classes.actions}>
-        <Button
+        <Link
           color="primary"
           size="small"
           variant="text"
-          href="/SalesOverView"
+          to="/admin/OverViewSales"
         >
           자세히 보기(Overview) <ArrowRightIcon />
-        </Button>
+        </Link>
       </CardActions>
     </Card>
   );

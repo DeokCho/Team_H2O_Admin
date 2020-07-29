@@ -47,9 +47,8 @@ const NavBar = () => (
                 id="collasible-nav-dropdown">
                     <NavDropdown.Item href="/Login">Login</NavDropdown.Item>
                     <NavDropdown.Item href="/SignUp">SignUp</NavDropdown.Item>
-                    <NavDropdown.Item href="/MyPage">Mypage</NavDropdown.Item>
-                    <NavDropdown.Item href="/Admin">Admin</NavDropdown.Item>
-
+                <NavDropdown.Item href="/MyPage">Mypage</NavDropdown.Item>
+                <NavDropdown.Item href="/Admin" target="blank">Admin</NavDropdown.Item>
             </NavDropdown>
         </Navbar>
     </Container>

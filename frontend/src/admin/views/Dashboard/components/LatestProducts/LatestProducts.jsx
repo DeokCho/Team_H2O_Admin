@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {Link} from 'react-router-dom'
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/styles';
@@ -83,13 +84,14 @@ const LatestProducts = props => {
       </CardContent>
       <Divider />
       <CardActions className={classes.actions}>
-        <Button
+        <Link
           color="primary"
           size="small"
           variant="text"
+          to="/admin/OverViewProducts"
         >
           전체보기#2(View all) <ArrowRightIcon />
-        </Button>
+        </Link>
       </CardActions>
     </Card>
   );
