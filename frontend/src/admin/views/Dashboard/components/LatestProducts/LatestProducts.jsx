@@ -44,6 +44,9 @@ const LatestProducts = props => {
 
   const [products] = useState(mockData);
 
+  const moreButtonClick = () =>{
+    
+  }
   return (
     <Card
       {...rest}
@@ -63,7 +66,7 @@ const LatestProducts = props => {
             >
               <ListItemAvatar>
                 <img
-                  alt="Product"
+                  alt="Prescription"
                   className={classes.image}
                   src={product.imageUrl}
                 />
@@ -76,7 +79,9 @@ const LatestProducts = props => {
                 edge="end"
                 size="small"
               >
-                <MoreVertIcon />
+                <Button onClick={moreButtonClick}>
+                  <MoreVertIcon/>
+                </Button>
               </IconButton>
             </ListItem>
           ))}

@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import { Bar } from 'react-chartjs-2';
 import { makeStyles } from '@material-ui/styles';
+import {chartView_7,chartView_15,chartView_30} from './chart'
 import {
   Card,
   CardHeader,
@@ -36,6 +37,8 @@ const LatestSales = props => {
   const classes = useStyles();
   //
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [days, setDays] = useState(7)
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -43,6 +46,7 @@ const LatestSales = props => {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  
   //
   return (
     <Card
@@ -53,7 +57,10 @@ const LatestSales = props => {
         action={
           <div>
           <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick} size="small" variant="text" >
-          최근 일주일(Last 7 days) <ArrowDropDownIcon />
+          
+          최근 {days}일 전
+        
+          <ArrowDropDownIcon />
           </Button>
           <Menu
           id="simple-menu"
@@ -62,9 +69,9 @@ const LatestSales = props => {
           open={Boolean(anchorEl)}
           onClose={handleClose}
         >
-          <MenuItem onClick={handleClose}>최근 일주일</MenuItem>
-          <MenuItem onClick={handleClose}>최근 15일</MenuItem>
-          <MenuItem onClick={handleClose}>최근 한달</MenuItem>
+          <MenuItem onClick={()=> {setDays(7); setAnchorEl(null); chartView_7()}}>최근 일주일</MenuItem>
+          <MenuItem onClick={()=> {setDays(15); setAnchorEl(null); chartView_15()}}>최근 15일</MenuItem>
+          <MenuItem onClick={()=> {setDays(30); setAnchorEl(null); chartView_30()}}>최근 한달</MenuItem>
         </Menu>
         </div>}
         

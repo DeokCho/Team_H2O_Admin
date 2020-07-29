@@ -70,3 +70,13 @@ export const options = {
     ]
   }
 };
+
+export const chartView_7 = () => {
+  alert('7일!')
+}
+export const chartView_15 = () => {
+  alert('15일!')
+}
+export const chartView_30 = () => {
+  alert('30일!')
+}
