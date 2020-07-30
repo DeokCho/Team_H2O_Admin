@@ -63,9 +63,8 @@ const BarChart = createReactClass({
 const OverViewSales = () => {
 		return (
 		  <div>
-			  <ChartBody/>
 			  <ChartHead/>
-
+			  <ChartBody/>
 		  </div>
 		);
 }
