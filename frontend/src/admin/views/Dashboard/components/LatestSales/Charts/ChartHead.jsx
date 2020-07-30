@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import {Card, CardHeader, CardContent, Menu, MenuItem, Button} from '@material-ui/core'
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
+import {ChartBody} from './ChartBody';
 
 const ChartHead = () => {
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -14,12 +15,12 @@ const ChartHead = () => {
     const handleClose = (param) => {
         setAnchorEl(null);
         switch(param){
-            case 1: return setChartStyle("도넛형");
-            case 2: return setChartStyle("바형")
-            case 3: return setChartStyle("종합형")
-            default: return setChartStyle("문제 발생")
-        }
+            case 1: return setChartStyle("도넛형"); 
+            case 2: return setChartStyle("바형");
+            case 3: return setChartStyle("종합형");
+            default: return setChartStyle("문제 발생");
         
+        }
     };
 
     return (

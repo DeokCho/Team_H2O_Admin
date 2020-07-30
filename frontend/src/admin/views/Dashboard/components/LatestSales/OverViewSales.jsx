@@ -41,23 +41,7 @@ export const DoughnutChart = createReactClass({
 	  }
 	});
 
-const BarChart = createReactClass({
-	render() {
-		return (
-		  <div>
-			<h2>Bar Example (custom size)</h2>
-			<Bar
-			  data={data}
-			  width={100}
-			  height={50}
-			  options={{
-				maintainAspectRatio: false
-			  }}
-			/>
-		  </div>
-		);
-	  }
-	});
+
 
 
 const OverViewSales = () => {
