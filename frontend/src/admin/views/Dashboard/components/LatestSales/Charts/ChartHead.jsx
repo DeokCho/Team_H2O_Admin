@@ -15,14 +15,14 @@ const ChartHead = () => {
     const handleClose = (param) => {
         setAnchorEl(null);
         switch(param){
-            case 1: return setChartStyle("도넛형"); 
-            case 2: return setChartStyle("바형");
-            case 3: return setChartStyle("종합형");
+            case "Doughnut": return setChartStyle("도넛형"); 
+            case "Bar": return setChartStyle("바형");
+            case "Total": return setChartStyle("종합형");
             default: return setChartStyle("문제 발생");
-        
         }
     };
 
+    
     return (
         <Card>
         <CardHeader
@@ -42,9 +42,9 @@ const ChartHead = () => {
            keepMounted
            open={Boolean(anchorEl)}
            onClose={handleClose}>
-          <MenuItem onClick={()=>{handleClose(1)}}>도너츠형</MenuItem>
-          <MenuItem onClick={()=>{handleClose(2)}}>바형</MenuItem>
-          <MenuItem onClick={()=>{handleClose(3)}}>종합형</MenuItem>
+          <MenuItem onClick={()=>{handleClose("Doughnut")}}>도너츠형</MenuItem>
+          <MenuItem onClick={()=>{handleClose("Bar")}}>바형</MenuItem>
+          <MenuItem onClick={()=>{handleClose("Total")}}>종합형</MenuItem>
         </Menu>
         </div>}
         
@@ -52,5 +52,4 @@ const ChartHead = () => {
       />
     </Card>
     )}
-
 export default ChartHead
