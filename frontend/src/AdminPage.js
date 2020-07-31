@@ -21,12 +21,15 @@ import {
   Settings as SettingsView,
   SignUp as SignUpView,
   SignIn as SignInView,
-  NotFound as NotFoundView
+  NotFound as NotFoundView,
+  Board as BoardView,
+  Hospital as HospitalView,
+  Hospital
 } from './admin/views';
 import OverViewSales from './admin/views/Dashboard/components/LatestSales/OverViewSales';
 import { OverViewProducts } from './admin/views/Dashboard/components/LatestProducts';
 import { RecentVisitingHospital } from './admin/views/Dashboard/components/LatestOrders';
-import { Board } from './admin/views/Board';
+
 
 const browserHistory = createBrowserHistory();
 
@@ -128,12 +131,17 @@ const AdminPage = () => {
         path="/admin/RecentVisitingHospital"
       />
       <RouteWithLayout
-        component={Board}
+        component={BoardView}
         exact
         layout={MainLayout}
         path="/admin/Board"
       />
-
+      <RouteWithLayout
+        component={HospitalView}
+        exact
+        layout={MainLayout}
+        path="/admin/Hospital"
+      />
     </Switch>
     </Router>
       </ThemeProvider>
