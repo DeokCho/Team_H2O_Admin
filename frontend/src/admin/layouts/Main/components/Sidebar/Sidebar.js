@@ -7,6 +7,7 @@ import DashboardIcon from '@material-ui/icons/Dashboard';
 import PeopleIcon from '@material-ui/icons/People';
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
 import SettingsIcon from '@material-ui/icons/Settings';
+import DvrIcon from '@material-ui/icons/Dvr';
 
 import { Profile, SidebarNav } from './components';
 
@@ -48,6 +49,11 @@ const Sidebar = props => {
       title: '사용자(Users)',
       href: '/admin/users',
       icon: <PeopleIcon />
+    },
+    {
+      title: '게시판(Board)',
+      href: '/admin/board',
+      icon: <DvrIcon/>
     },
     {
       title: '계정정보(Account)',

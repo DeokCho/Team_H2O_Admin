@@ -26,6 +26,7 @@ import {
 import OverViewSales from './admin/views/Dashboard/components/LatestSales/OverViewSales';
 import { OverViewProducts } from './admin/views/Dashboard/components/LatestProducts';
 import { RecentVisitingHospital } from './admin/views/Dashboard/components/LatestOrders';
+import { Board } from './admin/views/Board';
 
 const browserHistory = createBrowserHistory();
 
@@ -125,6 +126,12 @@ const AdminPage = () => {
         exact
         layout={MainLayout}
         path="/admin/RecentVisitingHospital"
+      />
+      <RouteWithLayout
+        component={Board}
+        exact
+        layout={MainLayout}
+        path="/admin/Board"
       />
 
     </Switch>
