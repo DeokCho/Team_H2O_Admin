@@ -13,22 +13,18 @@ import './admin/assets/css/index.css';
 import validators from './admin/common/validators';
 import {
   Dashboard as DashboardView,
-  ProductList as ProductListView,
   UserList as UserListView,
   Typography as TypographyView,
   Icons as IconsView,
   Account as AccountView,
   Settings as SettingsView,
-  SignUp as SignUpView,
-  SignIn as SignInView,
   NotFound as NotFoundView,
   Board as BoardView,
-  Hospital as HospitalView,
-  Hospital
+  Hospital as HospitalView
 } from './admin/views';
 import OverViewSales from './admin/views/Dashboard/components/LatestSales/OverViewSales';
-import { OverViewProducts } from './admin/views/Dashboard/components/LatestProducts';
 import { RecentVisitingHospital } from './admin/views/Dashboard/components/LatestOrders';
+import { HospitalsAdd } from './admin/views/Hospital/components';
 
 
 const browserHistory = createBrowserHistory();
@@ -65,12 +61,6 @@ const AdminPage = () => {
         path="/admin/users"
       />
       <RouteWithLayout
-        component={ProductListView}
-        exact
-        layout={MainLayout}
-        path="/admin/products"
-      />
-      <RouteWithLayout
         component={TypographyView}
         exact
         layout={MainLayout}
@@ -95,18 +85,6 @@ const AdminPage = () => {
         path="/admin/settings"
       />
       <RouteWithLayout
-        component={SignUpView}
-        exact
-        layout={MinimalLayout}
-        path="/admin/sign-up"
-      />
-      <RouteWithLayout
-        component={SignInView}
-        exact
-        layout={MinimalLayout}
-        path="/admin/sign-in"
-      />
-      <RouteWithLayout
         component={NotFoundView}
         exact
         layout={MinimalLayout}
@@ -117,12 +95,6 @@ const AdminPage = () => {
         exact
         layout={MainLayout}
         path="/admin/OverViewSales"
-      />
-      <RouteWithLayout
-        component={OverViewProducts}
-        exact
-        layout={MainLayout}
-        path="/admin/OverViewProducts"
       />
       <RouteWithLayout
         component={RecentVisitingHospital}
@@ -141,6 +113,12 @@ const AdminPage = () => {
         exact
         layout={MainLayout}
         path="/admin/Hospital"
+      />
+      <RouteWithLayout
+        component={HospitalsAdd}
+        exact
+        layout={MainLayout}
+        path="/admin/HospitalsAdd"
       />
     </Switch>
     </Router>

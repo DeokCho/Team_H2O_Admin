@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/styles';
@@ -49,17 +50,19 @@ const HospitalsToolbar = props => {
         className={classes.exportButton}
           >Export
         </Button>
+        <Link to="/admin/HospitalsAdd">
         <Button
           color="primary"
           variant="contained"
-        >
-          Add hospital
-        </Button>
+          >
+          병원 등록(Add Hospital)
+          </Button>
+        </Link>
       </div>
       <div className={classes.row}>
         <SearchInput
           className={classes.searchInput}
-          placeholder="사용자 검색(Search hospital)"
+          placeholder="병원 검색(Search hospital)"
         />
       </div>
     </div>
