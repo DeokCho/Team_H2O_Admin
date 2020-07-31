@@ -1,26 +1,32 @@
-import React, {useState} from 'react';
+import React, {useState, useReducer} from 'react';
 import clsx from 'clsx';
 import {Card, CardHeader, CardContent, Menu, MenuItem, Button} from '@material-ui/core'
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
-import {ChartBody} from './ChartBody';
+import {ChartBody} from '../Charts';
+
 
 const ChartHead = () => {
     const [anchorEl, setAnchorEl] = React.useState(null);
+    const [chartStyle, setChartStyle] = useState("도넛형")
+
+
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
       };
-      
-    const [chartStyle, setChartStyle] = useState("도넛형")
-    const handleClose = (param) => {
-        setAnchorEl(null);
-        switch(param){
-            case "Doughnut": return setChartStyle("도넛형"); 
-            case "Bar": return setChartStyle("바형");
-            case "Total": return setChartStyle("종합형");
-            default: return setChartStyle("문제 발생");
-        }
-    };
+
+    const DoughnutEvent = () => {
+      setAnchorEl(null);
+      ChartBody()
+      }
+
+    const BarEvent = () => {
+      setAnchorEl(null);
+      }
+
+    const TotalEvent = () => {
+      setAnchorEl(null);
+      }
 
     
     return (
@@ -41,10 +47,10 @@ const ChartHead = () => {
            anchorEl={anchorEl}
            keepMounted
            open={Boolean(anchorEl)}
-           onClose={handleClose}>
-          <MenuItem onClick={()=>{handleClose("Doughnut")}}>도너츠형</MenuItem>
-          <MenuItem onClick={()=>{handleClose("Bar")}}>바형</MenuItem>
-          <MenuItem onClick={()=>{handleClose("Total")}}>종합형</MenuItem>
+           >
+          <MenuItem onClick={()=>{DoughnutEvent()}}>도너츠형</MenuItem>
+          <MenuItem onClick={()=>{BarEvent()}}>바형</MenuItem>
+          <MenuItem onClick={()=>{TotalEvent()}}>종합형</MenuItem>
         </Menu>
         </div>}
         

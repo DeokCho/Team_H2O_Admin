@@ -179,7 +179,6 @@ export const MixedChart = createReactClass => ({
   }
 });
 
-
 const ChartBody = () => {
     return <div 
 	style={{backgroundColor:"white"}}>
@@ -188,5 +187,4 @@ const ChartBody = () => {
     <MixedChart/>
 </div>
 }
-
 export default ChartBody
