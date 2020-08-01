@@ -16,7 +16,9 @@ import {
   TableHead,
   TableRow,
   Typography,
-  TablePagination
+  TablePagination,
+  Button,
+  Modal
 } from '@material-ui/core';
 
 import { getInitials } from '../../../../helpers';
@@ -145,13 +147,18 @@ const HospitalsTable = props => {
                         >
                           {getInitials(hospital.name)}
                         </Avatar>
-                        <Typography variant="body1">{hospital.name}</Typography>
+                        <Typography variant="body1">
+                          <Button>
+                            {hospital.name}
+                          </Button>
+                          <Modal>
+                          </Modal>
+                        </Typography>
                       </div>
                     </TableCell>
-                    <TableCell>{hospital.email}</TableCell>
+                    <TableCell>{hospital.homepage}</TableCell>
                     <TableCell>
-                      {hospital.address.city}, {hospital.address.state},{' '}
-                      {hospital.address.country}
+                      {hospital.address}
                     </TableCell>
                     <TableCell>{hospital.phone}</TableCell>
                     <TableCell>

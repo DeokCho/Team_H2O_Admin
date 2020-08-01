@@ -61,11 +61,11 @@ const Sidebar = props => {
       href: '/admin/board',
       icon: <DvrIcon/>
     },
-    {
-      title: '계정정보(Account)',
-      href: '/admin/account',
-      icon: <AccountBoxIcon />
-    },
+    // {
+    //   title: '계정정보(Account)',
+    //   href: '/admin/account',
+    //   icon: <AccountBoxIcon />
+    // },
     {
       title: '세팅(Settings)',
       href: '/admin/settings',
