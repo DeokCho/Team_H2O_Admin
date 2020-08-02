@@ -12,7 +12,7 @@ export default [
   },
   {
     id: uuid(),
-    name: 'Cao Yu',
+    name: '고려의료원',
     address: '',
     homepage: 'cao.yu@devias.io',
     avatarUrl: '/admin_images/avatars/Hospital_Logo_2.png',
@@ -21,7 +21,7 @@ export default [
   },
   {
     id: uuid(),
-    name: 'Alexa Richardson',
+    name: '서울대병원',
     address: '',
     homepage: 'alexa.richardson@devias.io',
     phone: '770-635-2682',

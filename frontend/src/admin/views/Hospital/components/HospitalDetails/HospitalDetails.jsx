@@ -70,7 +70,7 @@ const HospitalDetails = props => {
         <CardContent>
           <Grid
             container
-            spacing={3}
+            spacing={5}
           >
             <Grid
               item
