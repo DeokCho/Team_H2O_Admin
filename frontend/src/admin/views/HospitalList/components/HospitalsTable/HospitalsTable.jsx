@@ -128,11 +128,11 @@ const HospitalsTable = props => {
                       onChange={handleSelectAll}
                     />
                   </TableCell>
-                  <TableCell>이름(Name)</TableCell>
-                  <TableCell>이메일(Email)</TableCell>
-                  <TableCell>지역(Location)</TableCell>
-                  <TableCell>휴대폰(Phone)</TableCell>
-                  <TableCell>가입일(Registration date)</TableCell>
+                  <TableCell>이름</TableCell>
+                  <TableCell>홈페이지</TableCell>
+                  <TableCell>병원 주소</TableCell>
+                  <TableCell>연락처</TableCell>
+                  <TableCell>등록일</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -179,11 +179,11 @@ const HospitalsTable = props => {
                         </Modal.Header>
                         <Modal.Body><Hospital/></Modal.Body>
                         <Modal.Footer>
-                          <Button variant="secondary" onClick={handleClose}>
-                            Close
-                          </Button>
                           <Button variant="primary" onClick={handleClose}>
-                            Save Changes
+                            저장
+                          </Button>
+                          <Button variant="secondary" onClick={handleClose}>
+                            취소
                           </Button>
                         </Modal.Footer>
                       </Modal>
