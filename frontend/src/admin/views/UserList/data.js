@@ -3,16 +3,11 @@ import uuid from 'uuid/v1';
 export default [
   {
     id: uuid(),
-    name: 'Ekaterina Tankova',
-    address: {
-      country: 'USA',
-      state: 'West Virginia',
-      city: 'Parkersburg',
-      street: '2849 Fulton Street'
-    },
-    email: 'ekaterina.tankova@devias.io',
-    phone: '304-428-3097',
-    avatarUrl: '/admin_images/avatars/avatar_3.png',
+    name: '박정관',
+    address: '대한민국 서울시',
+    email: 'parksrazor@tistory.com',
+    phone: '010-1111-1111',
+    avatarUrl: '/admin_images/avatars/parksrazor.png',
     createdAt: 1555016400000
   },
   {

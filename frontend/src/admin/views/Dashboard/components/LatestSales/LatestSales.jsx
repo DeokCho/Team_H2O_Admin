@@ -3,7 +3,6 @@ import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import { Bar } from 'react-chartjs-2';
 import { makeStyles } from '@material-ui/styles';
-import {chartView_7,chartView_15,chartView_30} from './chart'
 import {
   Card,
   CardHeader,
@@ -39,6 +38,7 @@ const LatestSales = props => {
   //
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [chartType, setChartType] = useState("도넛형")
+  const [hrefInput, setHrefInput] = useState("")
   
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -47,6 +47,11 @@ const LatestSales = props => {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  
+  const dounutChartOutput = () => {
+    return  
+  }
+    
   
   //
   return (
@@ -70,7 +75,7 @@ const LatestSales = props => {
           open={Boolean(anchorEl)}
           onClose={handleClose}
         >
-          <MenuItem onClick={()=> {setAnchorEl(null); setChartType("도넛형")}}>도넛형</MenuItem>
+          <MenuItem onClick={()=> {setAnchorEl(null); setChartType("도넛형"); }}>도넛형</MenuItem>
           <MenuItem onClick={()=> {setAnchorEl(null); setChartType("바형")}}>바형</MenuItem>
           <MenuItem onClick={()=> {setAnchorEl(null); setChartType("종합형")}}>종합형</MenuItem>
         </Menu>
@@ -80,7 +85,7 @@ const LatestSales = props => {
       />
       <Divider />
       <CardContent>
-        {chartType === "도넛형" ?  <DoughnutChart/>: chartType === "바형"? <BarChart/>: <MixedChart/>}
+        {chartType === "도넛형" ? <DoughnutChart/>: chartType === "바형"? <BarChart/>: <MixedChart/>}
       </CardContent>
       <Divider />
       <CardActions className={classes.actions}>

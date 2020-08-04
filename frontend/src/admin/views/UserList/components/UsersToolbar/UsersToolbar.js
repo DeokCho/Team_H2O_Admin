@@ -53,7 +53,7 @@ const UsersToolbar = props => {
           color="primary"
           variant="contained"
         >
-          Add user
+          사용자 등록
         </Button>
       </div>
       <div className={classes.row}>
