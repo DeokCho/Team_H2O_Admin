@@ -5,7 +5,7 @@ import moment from 'moment';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import { makeStyles } from '@material-ui/styles';
 import { Button, Modal } from 'react-bootstrap';
-
+// import {Button, Col, Container, Form, Image, Modal, Row} from "react-bootstrap";
 import {
   Card,
   CardActions,
@@ -22,8 +22,10 @@ import {
   Button as M_Button
 } from '@material-ui/core';
 
-import { getInitials } from '../../../../helpers';
-import Account from '../../../Account';
+import { getInitials } from '../../../../../helpers';
+import DoctorAccount from '../../DoctorAccount/DoctorAccount';
+
+
 
 const useStyles = makeStyles(theme => ({
   root: {},
@@ -42,50 +44,55 @@ const useStyles = makeStyles(theme => ({
   },
   actions: {
     justifyContent: 'flex-end'
+  },
+  headscheama: {
+    alignItems: 'center',
+    justifyContent: 'center'
   }
 }));
 
-const UsersTable = props => {
-  const { className, users, ...rest } = props;
+
+const DoctorsTable = props => {
+  const { className, doctors, ...rest } = props;
 
   const classes = useStyles();
 
-  const [selectedUsers, setSelectedUsers] = useState([]);
+  const [selectedDoctors, setSelectedDoctors] = useState([]);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [page, setPage] = useState(0);
 
   const handleSelectAll = event => {
-    const { users } = props;
+    const { doctors } = props;
 
-    let selectedUsers;
+    let selectedDoctors;
 
     if (event.target.checked) {
-      selectedUsers = users.map(user => user.id);
+      selectedDoctors = doctors.map(doctor => doctor.id);
     } else {
-      selectedUsers = [];
+      selectedDoctors = [];
     }
 
-    setSelectedUsers(selectedUsers);
+    setSelectedDoctors(selectedDoctors);
   };
 
   const handleSelectOne = (event, id) => {
-    const selectedIndex = selectedUsers.indexOf(id);
-    let newSelectedUsers = [];
+    const selectedIndex = selectedDoctors.indexOf(id);
+    let newSelectedDoctors = [];
 
     if (selectedIndex === -1) {
-      newSelectedUsers = newSelectedUsers.concat(selectedUsers, id);
+      newSelectedDoctors = newSelectedDoctors.concat(selectedDoctors, id);
     } else if (selectedIndex === 0) {
-      newSelectedUsers = newSelectedUsers.concat(selectedUsers.slice(1));
-    } else if (selectedIndex === selectedUsers.length - 1) {
-      newSelectedUsers = newSelectedUsers.concat(selectedUsers.slice(0, -1));
+      newSelectedDoctors = newSelectedDoctors.concat(selectedDoctors.slice(1));
+    } else if (selectedIndex === selectedDoctors.length - 1) {
+      newSelectedDoctors = newSelectedDoctors.concat(selectedDoctors.slice(0, -1));
     } else if (selectedIndex > 0) {
-      newSelectedUsers = newSelectedUsers.concat(
-        selectedUsers.slice(0, selectedIndex),
-        selectedUsers.slice(selectedIndex + 1)
+      newSelectedDoctors = newSelectedDoctors.concat(
+        selectedDoctors.slice(0, selectedIndex),
+        selectedDoctors.slice(selectedIndex + 1)
       );
     }
 
-    setSelectedUsers(newSelectedUsers);
+    setSelectedDoctors(newSelectedDoctors);
   };
 
   const handlePageChange = (event, page) => {
@@ -96,7 +103,7 @@ const UsersTable = props => {
     setRowsPerPage(event.target.value);
   };
 
-  // ModalLine-------------------------------------------- START
+// ModalLine-------------------------------------------- START
 
   const [show, setShow] = useState(false);
 
@@ -104,7 +111,6 @@ const UsersTable = props => {
   const handleShow = () => setShow(true);
 
 // ModalLine-------------------------------------------- END
-
   return (
     <Card
       {...rest}
@@ -115,38 +121,41 @@ const UsersTable = props => {
           <div className={classes.inner}>
             <Table>
               <TableHead>
-                <TableRow>
+                <TableRow 
+                    className={classes.headscheama}>
                   <TableCell padding="checkbox">
                     <Checkbox
-                      checked={selectedUsers.length === users.length}
+                      checked={selectedDoctors.length === doctors.length}
                       color="primary"
                       indeterminate={
-                        selectedUsers.length > 0 &&
-                        selectedUsers.length < users.length
+                        selectedDoctors.length > 0 &&
+                        selectedDoctors.length < doctors.length
                       }
                       onChange={handleSelectAll}
                     />
                   </TableCell>
                   <TableCell>이름</TableCell>
-                  <TableCell>이메일</TableCell>
-                  <TableCell>지역</TableCell>
-                  <TableCell>휴대폰</TableCell>
-                  <TableCell>가입일</TableCell>
+                  <TableCell>나이</TableCell>
+                  <TableCell>직책</TableCell>
+                  <TableCell>진료과목</TableCell>
+                  <TableCell>전문분야</TableCell>
+                  <TableCell>등록일</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
-                {users.slice(0, rowsPerPage).map(user => (
+                {doctors.slice(0, rowsPerPage).map(doctor => (
                   <TableRow
-                    className={classes.tableRow}
+                    className={classes.tableRow, classes.headscheama}
                     hover
-                    key={user.id}
-                    selected={selectedUsers.indexOf(user.id) !== -1}
+                    key={doctor.id}
+                    
+                    selected={selectedDoctors.indexOf(doctor.id) !== -1}
                   >
                     <TableCell padding="checkbox">
                       <Checkbox
-                        checked={selectedUsers.indexOf(user.id) !== -1}
+                        checked={selectedDoctors.indexOf(doctor.id) !== -1}
                         color="primary"
-                        onChange={event => handleSelectOne(event, user.id)}
+                        onChange={event => handleSelectOne(event, doctor.id)}
                         value="true"
                       />
                     </TableCell>
@@ -154,13 +163,18 @@ const UsersTable = props => {
                       <div className={classes.nameContainer}>
                         <Avatar
                           className={classes.avatar}
-                          src={user.avatarUrl}
+                          src={doctor.avatarUrl}
                         >
-                          {getInitials(user.name)}
+                          {getInitials(doctor.doctorName)}
                         </Avatar>
                         <Typography variant="body1">
-                        <M_Button variant="primary" onClick={handleShow}>
-                          {user.name}
+                        {/* -------------------- Modal Line ------------------ */}
+                        
+                        <M_Button 
+                          variant="primary" 
+                          onClick={handleShow} 
+                          className={classes.headscheama}>
+                            {doctor.doctorName}
                         </M_Button>
                         <Modal 
                           {...props} 
@@ -174,7 +188,7 @@ const UsersTable = props => {
                         <Modal.Header closeButton>
                           <Modal.Title>등록 병원 정보</Modal.Title>
                         </Modal.Header>
-                        <Modal.Body><Account/></Modal.Body>
+                        <Modal.Body><DoctorAccount/></Modal.Body>
                         <Modal.Footer>
                           <Button variant="primary" onClick={handleClose}>
                             저장
@@ -185,18 +199,18 @@ const UsersTable = props => {
                         </Modal.Footer>
                       </Modal>
                         {/* -------------------- Modal Line ------------------ */}
-                        
                         </Typography>
+
                       </div>
                     </TableCell>
-                    <TableCell>{user.email}</TableCell>
+                    <TableCell >{doctor.age}</TableCell>
                     <TableCell>
-                      {user.address.city}, {user.address.state},{' '}
-                      {user.address.country}
+                      {doctor.position}
                     </TableCell>
-                    <TableCell>{user.phone}</TableCell>
-                    <TableCell>
-                      {moment(user.createdAt).format('DD/MM/YYYY')}
+                    <TableCell >{doctor.detailData},</TableCell>
+                    <TableCell >{doctor.medicalSubject}</TableCell>
+                    <TableCell >
+                      {moment(doctor.createdAt).format('DD/MM/YYYY')}
                     </TableCell>
                   </TableRow>
                 ))}
@@ -208,7 +222,7 @@ const UsersTable = props => {
       <CardActions className={classes.actions}>
         <TablePagination
           component="div"
-          count={users.length}
+          count={doctors.length}
           onChangePage={handlePageChange}
           onChangeRowsPerPage={handleRowsPerPageChange}
           page={page}
@@ -220,9 +234,9 @@ const UsersTable = props => {
   );
 };
 
-UsersTable.propTypes = {
+DoctorsTable.propTypes = {
   className: PropTypes.string,
-  users: PropTypes.array.isRequired
+  doctors: PropTypes.array.isRequired
 };
 
-export default UsersTable;
+export default DoctorsTable;

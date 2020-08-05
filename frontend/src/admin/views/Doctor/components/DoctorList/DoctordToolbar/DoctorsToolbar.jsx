@@ -1,10 +1,10 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/styles';
 import { Button } from '@material-ui/core';
-
-import { SearchInput } from '../../../../components';
+import { SearchInput } from '../../../../../components';
 
 const useStyles = makeStyles(theme => ({
   root: {},
@@ -31,7 +31,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const UsersToolbar = props => {
+const DoctorsToolbar = props => {
   const { className, ...rest } = props;
 
   const classes = useStyles();
@@ -41,9 +41,8 @@ const UsersToolbar = props => {
       {...rest}
       className={clsx(classes.root, className)}
     >
-      
       <div className={classes.row}>
-      <h1 className={classes.headline}>사용자 관리</h1>
+        <h1 className={classes.headline}>병원 관리</h1>
         <span className={classes.spacer} />
         <Button 
           className={classes.importButton}
@@ -54,25 +53,27 @@ const UsersToolbar = props => {
         className={classes.exportButton}
           >Export
         </Button>
+        <Link to="/admin/DoctorsAdd">
         <Button
           color="primary"
           variant="contained"
-        >
-          사용자 등록
-        </Button>
+          >
+          의사 등록
+          </Button>
+        </Link>
       </div>
       <div className={classes.row}>
         <SearchInput
           className={classes.searchInput}
-          placeholder="사용자 검색(Search user)"
+          placeholder="의사 검색"
         />
       </div>
     </div>
   );
 };
 
-UsersToolbar.propTypes = {
+DoctorsToolbar.propTypes = {
   className: PropTypes.string
 };
 
-export default UsersToolbar;
+export default DoctorsToolbar;

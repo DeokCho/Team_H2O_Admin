@@ -18,6 +18,9 @@ const useStyles = makeStyles(theme => ({
   spacer: {
     flexGrow: 1
   },
+  headline: {
+    marginLeft: theme.spacing(1)
+  },
   importButton: {
     marginRight: theme.spacing(1)
   },
@@ -40,6 +43,7 @@ const HospitalsToolbar = props => {
       className={clsx(classes.root, className)}
     >
       <div className={classes.row}>
+        <h1 className={classes.headline}>병원 관리</h1>
         <span className={classes.spacer} />
         <Button 
           className={classes.importButton}
