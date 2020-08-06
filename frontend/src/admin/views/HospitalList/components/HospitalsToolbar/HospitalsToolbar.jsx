@@ -59,7 +59,7 @@ const HospitalsToolbar = props => {
           color="primary"
           variant="contained"
           >
-          병원 등록(Add Hospital)
+          병원 등록
           </Button>
         </Link>
       </div>

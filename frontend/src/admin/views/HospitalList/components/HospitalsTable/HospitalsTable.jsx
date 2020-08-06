@@ -24,6 +24,7 @@ import {
 
 import { getInitials } from '../../../../helpers';
 import Hospital from '../../../Hospital/Hospital';
+// import mockData from '../data'
 
 
 const useStyles = makeStyles(theme => ({
@@ -48,10 +49,14 @@ const useStyles = makeStyles(theme => ({
 
 
 const HospitalsTable = props => {
+  // mockData
+  // const [hospitals] = useState(mockData);
+  //
   const { className, hospitals, ...rest } = props;
 
   const classes = useStyles();
 
+  
   const [selectedHospitals, setSelectedHospitals] = useState([]);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [page, setPage] = useState(0);

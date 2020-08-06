@@ -47,6 +47,7 @@ const dougnutData = {
 	}]
 };
 
+
 var createReactClass = require('create-react-class');
 export const DoughnutChart = createReactClass({
   displayName: 'DoughnutChart',
@@ -227,15 +228,15 @@ const ChartBody = props => {
 
   const classes = useStyles();
   //
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [dropdownState, setDropdownState] = useState(null);
   const [days, setDays] = useState(7)
 
   const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
+    setDropdownState(event.currentTarget);
   };
 
   const handleClose = () => {
-    setAnchorEl(null);
+    setDropdownState(null);
   };
   
   //
@@ -255,14 +256,14 @@ const ChartBody = props => {
           </Button>
           <Menu
           id="simple-menu"
-          anchorEl={anchorEl}
+          dropdownState={dropdownState}
           keepMounted
-          open={Boolean(anchorEl)}
+          open={Boolean(dropdownState)}
           onClose={handleClose}
         >
-          <MenuItem onClick={()=> {setDays(7); setAnchorEl(null); }}>최근 일주일</MenuItem>
-          <MenuItem onClick={()=> {setDays(15); setAnchorEl(null); }}>최근 15일</MenuItem>
-          <MenuItem onClick={()=> {setDays(30); setAnchorEl(null); }}>최근 한달</MenuItem>
+          <MenuItem onClick={()=> {setDays(7); setDropdownState(null); }}>최근 일주일</MenuItem>
+          <MenuItem onClick={()=> {setDays(15); setDropdownState(null); }}>최근 15일</MenuItem>
+          <MenuItem onClick={()=> {setDays(30); setDropdownState(null); }}>최근 한달</MenuItem>
         </Menu>
         </div>}
         
