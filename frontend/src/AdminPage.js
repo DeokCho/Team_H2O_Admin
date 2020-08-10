@@ -22,7 +22,6 @@ import {
   Board as BoardView,
   HospitalList as HospitalView
 } from './admin/views';
-import OverViewSales from './admin/views/Dashboard/components/LatestSales/OverViewSales';
 import { RecentVisitingHospital } from './admin/views/Dashboard/components/LatestOrders';
 import { HospitalsAdd } from './admin/views/HospitalList/components';
 import { Doctor } from './admin/views/Doctor';
@@ -91,12 +90,6 @@ const AdminPage = () => {
         exact
         layout={MinimalLayout}
         path="/admin/not-found"
-      />
-      <RouteWithLayout
-        component={OverViewSales}
-        exact
-        layout={MainLayout}
-        path="/admin/OverViewSales"
       />
       <RouteWithLayout
         component={RecentVisitingHospital}

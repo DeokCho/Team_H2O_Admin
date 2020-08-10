@@ -49,9 +49,6 @@ const useStyles = makeStyles(theme => ({
 
 
 const HospitalsTable = props => {
-  // mockData
-  // const [hospitals] = useState(mockData);
-  //
   const { className, hospitals, ...rest } = props;
 
   const classes = useStyles();

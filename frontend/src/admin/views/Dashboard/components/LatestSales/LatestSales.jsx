@@ -23,6 +23,9 @@ import { data, options } from './chart';
 import { Link } from 'react-router-dom';
 import { DoughnutChart, BarChart, MixedChart } from './Charts/ChartBody';
 
+// import axios from 'axios';
+import { useDispatch } from 'react-redux';
+
 const useStyles = makeStyles((theme) => ({
   root: {},
   chartContainer: {
@@ -37,6 +40,26 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
+// Redux
+
+const CHART_AGE = 'CHART_AGE'
+// Action
+
+export const chartAgeAction = data => ({
+  type: CHART_AGE, 
+  payload: data
+})
+// ActionCreator
+
+export const chartReducer = (state = {}, action) => {
+  switch(action.type){
+    case 'CHART_AGE': return action.payload
+    default: return state
+  }
+}
+
+//
+
 const LatestSales = props => {
   const { className, ...rest } = props;
 
@@ -50,10 +73,12 @@ const LatestSales = props => {
     checkBox_Sex: false,
     checkBox_C: false,
     checkBox_D: false,
-    checkBox_E: false
+    checkBox_E: false,
+    checkBox_ChartData: ""
   })
   
-  
+  const [chartData, setChartData] = useState("")
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -64,6 +89,17 @@ const LatestSales = props => {
   
   const handleChange = event => {
     setChecked({checked, [event.target.name]: event.target.checked })
+    
+    // switch({chartData}){
+    //   case 
+    // }
+
+    // 체크에 따른 true false
+    // if(event.target.checked===!true){
+    //   alert("True")
+    // }else{
+    //   alert("False")
+    // }
   }
   useEffect(()=>{
     setChecked({...checked, checkBox_Age:true})
@@ -105,6 +141,7 @@ const LatestSales = props => {
         <FormControlLabel
           control={
             <Checkbox 
+              defaultChecked={true}
               checked={checked.checkBox_Age} 
               onChange={handleChange} 
               name="checkBox_Age"
@@ -147,19 +184,12 @@ const LatestSales = props => {
       </CardActions>
       <Divider />
       <CardContent>
-        {chartType === "도넛형" ? <DoughnutChart/>: chartType === "바형"? <BarChart/>: <MixedChart/>}
+        {chartType === "도넛형" ? 
+          <DoughnutChart chartData = {chartData}/>
+          : chartType === "바형"
+          ? <BarChart chartData={chartData}/>: 
+          <MixedChart chartData={chartData}/>}
       </CardContent>
-      <Divider />
-      <CardActions className={classes.actions}>
-        <Link
-          color="primary"
-          size="small"
-          variant="text"
-          to="/admin/OverViewSales"
-        >
-          자세히 보기(Chart) <ArrowRightIcon />
-        </Link>
-      </CardActions>
     </Card>
   );
 };

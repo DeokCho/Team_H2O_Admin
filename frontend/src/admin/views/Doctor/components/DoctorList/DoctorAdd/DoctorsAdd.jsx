@@ -220,13 +220,13 @@ const DoctorsAdd = props => {
                   className={classes.title}
                   variant="h2"
                 >
-                  Create new account
+                  의사 등록
                 </Typography>
                 <Typography
                   color="textSecondary"
                   gutterBottom
                 >
-                  Use your email to create new account
+                  의사 정보를 입력해주세요.
                 </Typography>
                 <TextField
                   className={classes.textField}

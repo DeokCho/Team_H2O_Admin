@@ -110,6 +110,6 @@ export default [
     phone: '009',
     avatarUrl: '/admin_images/avatars/user_default.png',
     createdAt: 1555016400000
-  },
+  }
   
 ];

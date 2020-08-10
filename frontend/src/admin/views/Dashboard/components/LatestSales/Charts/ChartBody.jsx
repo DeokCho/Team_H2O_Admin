@@ -21,6 +21,12 @@ import { data, options } from '../chart';
 import { Link } from 'react-router-dom';
 
 
+// export const chartData = props => {
+//   const { chartData } = props
+//   alert(chartData)
+// }
+
+
 // Dounut Chart Data
 const dougnutData = {
 	labels: [ 
@@ -279,16 +285,6 @@ const ChartBody = props => {
         </div>
       </CardContent>
       <Divider />
-      <CardActions className={classes.actions}>
-        <Link
-          color="primary"
-          size="small"
-          variant="text"
-          to="/admin/OverViewSales"
-        >
-          자세히 보기(Overview) <ArrowRightIcon />
-        </Link>
-      </CardActions>
     </Card>
   );
 };
